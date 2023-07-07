@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pillsproject/constants.dart';
 
 class PillList extends StatefulWidget {
   const PillList({super.key, required this.data});
@@ -27,7 +28,7 @@ class PillListState extends State<PillList> {
                     bottomRight: Radius.circular(15),
                     bottomLeft: Radius.circular(15))),
             leading: Image.asset(
-              'assets/pill.png',
+              Constants.pillsListTileImagePath,
               height: 35,
               width: 35,
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pillsproject/constants.dart';
 
 // Create a Form widget.
 class PillDescriptionForm extends StatefulWidget {
@@ -23,8 +24,6 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
   bool? _saturdayCheck = false;
   bool? _unCheckAll = false;
   bool _isSwitched = false;
-  String _selectAll = 'Select all';
-  String _timeSwitch = 'AM';
   List<String> days = [];
 
   @override
@@ -103,7 +102,7 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                   top: 20,
                   right: 60,
                   child: Text(
-                    _timeSwitch,
+                    Constants.timeSwitchText,
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.grey),
                   ),
@@ -117,9 +116,9 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                       setState(() {
                         _isSwitched = value;
                         if (_isSwitched == true) {
-                          _timeSwitch = 'PM';
+                          Constants.timeSwitchText = 'PM';
                         } else {
-                          _timeSwitch = 'AM';
+                          Constants.timeSwitchText = 'AM';
                         }
                       });
                     },
@@ -259,7 +258,7 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                       setState(() {
                         _unCheckAll = value;
                         if (_unCheckAll == true) {
-                          _selectAll = 'Unselect all';
+                          Constants.selectAllCheckboxText = 'Unselect all';
                           _sundayCheck = true;
                           _mondayCheck = true;
                           _tuesdayCheck = true;
@@ -268,7 +267,7 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                           _fridayCheck = true;
                           _saturdayCheck = true;
                         } else {
-                          _selectAll = 'Select all';
+                          Constants.selectAllCheckboxText = 'Select all';
                           _sundayCheck = false;
                           _mondayCheck = false;
                           _tuesdayCheck = false;
@@ -279,7 +278,7 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                         }
                       });
                     },
-                    title: Text(_selectAll),
+                    title: Text(Constants.selectAllCheckboxText),
                   ),
                 ),
               ),
@@ -300,7 +299,7 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                         _pillNameController.value.text,
                         _pillQuantityController.value.text,
                         _reasonController.value.text,
-                        '${_timeController.value.text} ${_timeSwitch}',
+                        '${_timeController.value.text} ${Constants.timeSwitchText}',
                         days
                       ]
                     ];

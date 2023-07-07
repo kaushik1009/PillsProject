@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pillsproject/constants.dart';
 import '../components/empty_state.dart';
 import '../components/pill_list_view.dart';
 import 'pill_description_page.dart';
@@ -40,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
             });
           }
         },
-        tooltip: 'Add Pill',
+        tooltip: Constants.toolTipText,
         child: const Icon(Icons.add),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pillsproject/constants.dart';
 import '../utils/pill_description_form.dart';
 
 class PillDescription extends StatelessWidget {
@@ -8,7 +9,7 @@ class PillDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pill Description'),
+        title: const Text(Constants.pillDescriptionPageTitle),
       ),
       body: SingleChildScrollView(
         child: Column(

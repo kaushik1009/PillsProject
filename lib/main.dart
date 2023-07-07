@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'ui/home_page.dart';
+import 'constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Pills First!',
+      title: Constants.appTitle,
       theme: ThemeData(primarySwatch: Colors.deepPurple),
-      home: const MyHomePage(title: 'Pills First!'),
+      home: const MyHomePage(title: Constants.appTitle),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pillsproject/constants.dart';
 
 class EmptyUI extends StatefulWidget {
   @override
@@ -17,15 +18,15 @@ class EmptyUIState extends State<EmptyUI> {
           padding: const EdgeInsets.only(top: 200.0),
           child: Column(
             children: <Widget>[
-              Image.asset('assets/empty_state.png'),
+              Image.asset(Constants.emptyStateImagePath),
               const Padding(padding: EdgeInsets.all(10.0)),
-              const Text('Oh huh.. there are no pills added',
+              const Text(Constants.emptyStateTitleText,
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.blueGrey)),
               const Padding(padding: EdgeInsets.all(2.0)),
-              const Text('Add items to get Started',
+              const Text(Constants.emptyStateSubTitleText,
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.normal,
