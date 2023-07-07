@@ -38,7 +38,6 @@ class PillListState extends State<PillList> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text('${widget.data[index][3]} - ${widget.data[index][2]}'),
-                Text(widget.data[index][5][0]),
               ],
             ),
             tileColor: const Color.fromARGB(255, 210, 205, 213),

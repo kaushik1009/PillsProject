@@ -15,16 +15,6 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
   final _reasonController = TextEditingController();
   final _timeController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  bool? _sundayCheck = false;
-  bool? _mondayCheck = false;
-  bool? _tuesdayCheck = false;
-  bool? _wednesdayCheck = false;
-  bool? _thursdayCheck = false;
-  bool? _fridayCheck = false;
-  bool? _saturdayCheck = false;
-  bool? _unCheckAll = false;
-  bool _isSwitched = false;
-  List<String> days = [];
 
   @override
   void dispose() {
@@ -43,12 +33,12 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
             controller: _pillNameController,
             decoration: const InputDecoration(
               icon: Icon(Icons.medication),
-              hintText: 'Enter the tablet name',
-              labelText: 'Name',
+              hintText: Constants.tabletNameHintText,
+              labelText: Constants.tabletNameLabelText,
             ),
             validator: (value) {
               if (value!.isEmpty) {
-                return 'Please enter correct pill name';
+                return Constants.tabletNameValidationText;
               }
               return null;
             },
@@ -57,12 +47,12 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
             controller: _pillQuantityController,
             decoration: const InputDecoration(
               icon: Icon(Icons.production_quantity_limits),
-              hintText: 'Enter the number of tablets to be taken',
-              labelText: 'Quantity',
+              hintText: Constants.tabletQuantityHintText,
+              labelText: Constants.tabletQuantityLabelText,
             ),
             validator: (value) {
               if (!(value!.contains(RegExp(r'\d')))) {
-                return 'Please enter a valid quantity';
+                return Constants.tabletQuantityValidationText;
               }
               return null;
             },
@@ -71,12 +61,12 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
             controller: _reasonController,
             decoration: const InputDecoration(
               icon: Icon(Icons.description),
-              hintText: 'Enter reason for medication',
-              labelText: 'Reason',
+              hintText: Constants.tabletReasonHintText,
+              labelText: Constants.tabletReasonLabelText,
             ),
             validator: (value) {
               if (value!.isEmpty) {
-                return 'Please enter valid reason';
+                return Constants.tabletReasonValidationText;
               }
               return null;
             },
@@ -88,12 +78,12 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                   controller: _timeController,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.timelapse),
-                    hintText: 'Enter the time as HH:MM',
-                    labelText: 'Time',
+                    hintText: Constants.tabletTimingsHintText,
+                    labelText: Constants.tabletTimingsLabelText,
                   ),
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return 'Please enter valid time';
+                      return Constants.tabletTimingsValidationText;
                     }
                     return null;
                   },
@@ -111,11 +101,11 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                   top: 4,
                   right: 0,
                   child: Switch(
-                    value: _isSwitched,
+                    value: Constants.isSwitched,
                     onChanged: (bool value) {
                       setState(() {
-                        _isSwitched = value;
-                        if (_isSwitched == true) {
+                        Constants.isSwitched = value;
+                        if (Constants.isSwitched == true) {
                           Constants.timeSwitchText = 'PM';
                         } else {
                           Constants.timeSwitchText = 'AM';
@@ -132,14 +122,14 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10.0, top: 20.0),
                   child: CheckboxListTile(
-                    value: _sundayCheck,
+                    value: Constants.sundayCheck,
                     controlAffinity: ListTileControlAffinity.leading,
                     onChanged: (bool? value) {
                       setState(() {
-                        _sundayCheck = value;
+                        Constants.sundayCheck = value;
                       });
                     },
-                    title: const Text("Sunday"),
+                    title: const Text(Constants.sunday),
                   ),
                 ),
               ),
@@ -147,14 +137,14 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10.0, top: 20.0),
                   child: CheckboxListTile(
-                    value: _mondayCheck,
+                    value: Constants.mondayCheck,
                     controlAffinity: ListTileControlAffinity.leading,
                     onChanged: (bool? value) {
                       setState(() {
-                        _mondayCheck = value;
+                        Constants.mondayCheck = value;
                       });
                     },
-                    title: const Text("Monday"),
+                    title: const Text(Constants.monday),
                   ),
                 ),
               ),
@@ -167,14 +157,14 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: CheckboxListTile(
-                    value: _tuesdayCheck,
+                    value: Constants.tuesdayCheck,
                     controlAffinity: ListTileControlAffinity.leading,
                     onChanged: (bool? value) {
                       setState(() {
-                        _tuesdayCheck = value;
+                        Constants.tuesdayCheck = value;
                       });
                     },
-                    title: const Text("Tuesday"),
+                    title: const Text(Constants.tuesday),
                   ),
                 ),
               ),
@@ -182,14 +172,14 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: CheckboxListTile(
-                    value: _wednesdayCheck,
+                    value: Constants.wednesdayCheck,
                     controlAffinity: ListTileControlAffinity.leading,
                     onChanged: (bool? value) {
                       setState(() {
-                        _wednesdayCheck = value;
+                        Constants.wednesdayCheck = value;
                       });
                     },
-                    title: const Text("Wednesday"),
+                    title: const Text(Constants.wednesday),
                   ),
                 ),
               ),
@@ -202,14 +192,14 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: CheckboxListTile(
-                    value: _thursdayCheck,
+                    value: Constants.thursdayCheck,
                     controlAffinity: ListTileControlAffinity.leading,
                     onChanged: (bool? value) {
                       setState(() {
-                        _thursdayCheck = value;
+                        Constants.thursdayCheck = value;
                       });
                     },
-                    title: const Text("Thursday"),
+                    title: const Text(Constants.thursday),
                   ),
                 ),
               ),
@@ -217,14 +207,14 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: CheckboxListTile(
-                    value: _fridayCheck,
+                    value: Constants.fridayCheck,
                     controlAffinity: ListTileControlAffinity.leading,
                     onChanged: (bool? value) {
                       setState(() {
-                        _fridayCheck = value;
+                        Constants.fridayCheck = value;
                       });
                     },
-                    title: const Text("Friday"),
+                    title: const Text(Constants.friday),
                   ),
                 ),
               ),
@@ -237,14 +227,14 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: CheckboxListTile(
-                    value: _saturdayCheck,
+                    value: Constants.saturdayCheck,
                     controlAffinity: ListTileControlAffinity.leading,
                     onChanged: (bool? value) {
                       setState(() {
-                        _saturdayCheck = value;
+                        Constants.saturdayCheck = value;
                       });
                     },
-                    title: const Text("Saturday"),
+                    title: const Text(Constants.saturday),
                   ),
                 ),
               ),
@@ -252,29 +242,29 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: CheckboxListTile(
-                    value: _unCheckAll,
+                    value: Constants.unCheckAll,
                     controlAffinity: ListTileControlAffinity.leading,
                     onChanged: (bool? value) {
                       setState(() {
-                        _unCheckAll = value;
-                        if (_unCheckAll == true) {
+                        Constants.unCheckAll = value;
+                        if (Constants.unCheckAll == true) {
                           Constants.selectAllCheckboxText = 'Unselect all';
-                          _sundayCheck = true;
-                          _mondayCheck = true;
-                          _tuesdayCheck = true;
-                          _wednesdayCheck = true;
-                          _thursdayCheck = true;
-                          _fridayCheck = true;
-                          _saturdayCheck = true;
+                          Constants.sundayCheck = true;
+                          Constants.mondayCheck = true;
+                          Constants.tuesdayCheck = true;
+                          Constants.wednesdayCheck = true;
+                          Constants.thursdayCheck = true;
+                          Constants.fridayCheck = true;
+                          Constants.saturdayCheck = true;
                         } else {
                           Constants.selectAllCheckboxText = 'Select all';
-                          _sundayCheck = false;
-                          _mondayCheck = false;
-                          _tuesdayCheck = false;
-                          _wednesdayCheck = false;
-                          _thursdayCheck = false;
-                          _fridayCheck = false;
-                          _saturdayCheck = false;
+                          Constants.sundayCheck = false;
+                          Constants.mondayCheck = false;
+                          Constants.tuesdayCheck = false;
+                          Constants.wednesdayCheck = false;
+                          Constants.thursdayCheck = false;
+                          Constants.fridayCheck = false;
+                          Constants.saturdayCheck = false;
                         }
                       });
                     },
@@ -287,12 +277,9 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
           Container(
             padding: const EdgeInsets.only(left: 150.0, top: 20.0),
             child: ElevatedButton(
-                child: const Text('Done'),
+                child: const Text(Constants.submitButtonTitle),
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    if (_sundayCheck == true) {
-                      days.add('Sun');
-                    }
                     List<dynamic> formValues = [
                       [
                         true,
@@ -300,7 +287,6 @@ class PillDescriptionFormState extends State<PillDescriptionForm> {
                         _pillQuantityController.value.text,
                         _reasonController.value.text,
                         '${_timeController.value.text} ${Constants.timeSwitchText}',
-                        days
                       ]
                     ];
                     Navigator.pop(
