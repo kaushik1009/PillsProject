@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pillsproject/constants.dart';
-import '../utils/pill_description_form.dart';
+import '../components/pill_description_form.dart';
 
 class PillDescription extends StatelessWidget {
   const PillDescription({super.key});

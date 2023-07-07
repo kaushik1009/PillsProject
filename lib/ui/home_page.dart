@@ -34,11 +34,13 @@ class _MyHomePageState extends State<MyHomePage> {
             context,
             MaterialPageRoute(builder: (context) => const PillDescription()),
           );
-          if (result[0][0]) {
-            setState(() {
-              _isShow = false;
-              entries.add(result[0]);
-            });
+          if (result != null) {
+            if (result[0][0]) {
+              setState(() {
+                _isShow = false;
+                entries.add(result[0]);
+              });
+            }
           }
         },
         tooltip: Constants.toolTipText,
